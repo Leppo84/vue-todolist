@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+    <title>ToBooList</title>
+</head>
+<body>
+    <header>
+        <!-- logo -->
+        <img class="logo" src="img/Logo.png" alt="BooleanLogo">
+        <div class="container">
+            <span class="logotype">Toboolist</span>
+        </div> 
+    </header>
+    <main id="toDoApp">
+        <section class="board actionbar">
+            <!-- button -->
+            <input type="text" @keyup.enter="" v-model="newTask.task">
+            <button id="active">Add Task</button>
+            <!-- <button id="unactive">Add Section</button> -->
+        </section>
+        <section class="board tasks">
+            <div>
+                <!-- new task -->        
+                <div class="title">
+                    <div class="arrow"></div>
+                    <h3>La mia lista:</h3>
+                </div>
+                <div v-for="(item, i) in myList" class="line" key="i">
+                    <div v-if="myList[i].done === 'false'" class="X">
+                        <h5>{{myList[i].task}}</h5>
+                    </div>
+                    <div v-if="myList[i].done === 'true'" class="V">
+                        <h5 class="done">{{myList[i].task}}</h5>
+                    </div>
+                    <!-- <div class="label editorial">Editorial</div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- <div class="line">
+        <h5 class="done">Andare a prendere il nipote</h5>
+        <div class="label editorial">Editorial</div>
+    </div> -->
+
+        
+    <!-- link vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- link js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
