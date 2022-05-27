@@ -11,11 +11,11 @@ const toDoList = new Vue ({
                 done : "true",
             },
             {
-                task : "Capire intimente Vue",
+                task : "Capire intimamente Vue",
                 done : "False",
             },
             {
-                task : "Telefonare Cettina",
+                task : "Avere una vita sociale",
                 done : "false",
             },
             {
@@ -23,15 +23,24 @@ const toDoList = new Vue ({
                 done : "false",
             },
             {
-                task : "Prenotare casa per Tom",
+                task : "Finire l'esercizio",
                 done : "true",
             },
         ]
     },
     methods : {
-        // addTask (){
-
-        // }
-
+        removeTask (index){
+            this.myList.splice(index,1);
+        },
+        addTask (){
+            const addingTask = {
+                task : this.newTask.task,
+                done : "false",
+            };
+            if (addingTask.task !== ""){
+                this.myList.push(addingTask);
+                this.newTask.task = "";
+            }
+        },
     }
 })
