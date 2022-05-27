@@ -115,7 +115,7 @@ h5.done {
 }
 
 .V::before {
-    height: 15px;
+    height: 14px;
     width: 11px;
     content: "✔";
     border-radius: 50%;

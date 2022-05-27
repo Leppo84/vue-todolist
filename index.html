@@ -20,7 +20,7 @@
     <main id="toDoApp">
         <section class="board actionbar">
             <!-- button -->
-            <input type="text" @keyup.enter="addTask" v-model="newTask.task" placeholder="Inserisci una nuova nota">
+            <input type="text" @keyup.enter="addTask" v-model="newTask" placeholder="Inserisci una nuova nota">
             <button id="active" @click="addTask">Aggiungi</button>
             <!-- <button id="unactive">Add Section</button> -->
         </section>
@@ -32,9 +32,9 @@
                 </div>
                 <h4 v-if="myList.length === 0">Bravo, hai completato todos los todos!</h4>
                 <div v-else>
-                    <div v-for="(item, index) in myList" class="line" >
-                        <div :class="myList[index].done === 'true' ? 'V' : 'X'" key="index">
-                            <h5 :class="myList[index].done === 'true' ? 'done' : ''" @click="myList[index].done === 'true' ? myList[index].done = 'false' : myList[index].done = 'true'">{{myList[index].task}}</h5>
+                    <div v-for="(item, index) in myList" class="line" :key="index">
+                        <div :class="myList[index].done === 'true' ? 'V' : 'X'" @click="myList[index].done === 'true' ? myList[index].done = 'false' : myList[index].done = 'true'">
+                            <h5 :class="myList[index].done === 'true' ? 'done' : ''">{{myList[index].task}}</h5>
                         </div>
                         <button @click="removeTask(index)"> X </button>
                         <!-- <div class="label editorial">Editorial</div> -->

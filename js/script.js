@@ -1,10 +1,7 @@
 const toDoList = new Vue ({
     el : "#toDoApp",
     data : {
-        newTask : {
-            task : "",
-            done : "false",
-        },
+        newTask : "",
         myList : [
             {
                 task : "Andare a prendere il nipote",
@@ -34,12 +31,12 @@ const toDoList = new Vue ({
         },
         addTask (){
             const addingTask = {
-                task : this.newTask.task,
+                task : this.newTask,
                 done : "false",
             };
             if (addingTask.task !== ""){
                 this.myList.push(addingTask);
-                this.newTask.task = "";
+                this.newTask = "";
             }
         },
     }
